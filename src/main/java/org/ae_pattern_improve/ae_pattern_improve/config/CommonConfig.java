@@ -48,13 +48,6 @@ public final class CommonConfig {
                     """
             )
             .define("preserveInterfaceContents", true);
-//    public static final ModConfigSpec.IntValue assemblerMatrixCoprocessorCount = BUILDER
-//            .comment("""
-//                    The number of coprocessors in the assembler matrix.\s
-//                    This will only take effects on the Assembler Matrix.\s
-//                    """
-//            )
-//            .defineInRange("assemblerMatrixCoprocessorCount", 8, 8, 64);
     public static final ModConfigSpec SPEC = BUILDER.build();
 
 
