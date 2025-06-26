@@ -1,7 +1,5 @@
 {
-  "itemGroup.ae_pattern_improve": "Example Mod Tab",
-  "block.ae_pattern_improve.example_block": "Example Block",
-  "item.ae_pattern_improve.example_item": "Example Item",
+  "itemGroup.ae_pattern_improve": "AE Pattern QOL Improvements",
   "gui.ae_pattern_improve.pattern_modifier.div.desc": "Div both inputs and outputs by %s",
   "gui.ae_pattern_improve.pattern_modifier.mul.desc": "Mul both inputs and outputs by %s",
   "gui.ae_pattern_improve.batch_pattern_encoder.batch_encode": "Batch Encode",
