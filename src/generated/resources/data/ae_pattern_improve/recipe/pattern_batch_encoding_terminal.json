@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "ae2:cell_component_1k"
+        },
+        {
+            "item": "ae2:crafting_terminal"
+        },
+        {
+            "item": "ae2:engineering_processor"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "ae_pattern_improve:pattern_batch_encoding_terminal"
+    }
+}

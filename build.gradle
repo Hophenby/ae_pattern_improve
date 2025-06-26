@@ -1,0 +1,290 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'idea'
+    id 'net.neoforged.moddev' version '2.0.89'
+}
+
+version = mod_version
+group = mod_group_id
+
+repositories {
+    maven {
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        name = "TerraformersMC"
+        url = "https://maven.terraformersmc.com/"
+    }
+    maven {
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
+    maven { url "https://maven.shedaniel.me" }
+    maven {
+        url = uri("https://modmaven.dev/")
+        content {
+            includeGroup "appeng"
+            includeGroup "de.mari_023"
+        }
+    }
+    mavenLocal()
+    mavenCentral()
+    exclusiveContent {
+        forRepository {
+            maven {
+                url "https://cursemaven.com"
+            }
+        }
+        filter {
+            includeGroup "curse.maven"
+        }
+    }
+    maven {
+        name = 'GTCEu Maven'
+        url = 'https://maven.gtceu.com'
+        content {
+            includeGroup 'com.gregtechceu.gtceu'
+        }
+    }
+    maven { url = "https://api.modrinth.com/maven" }
+    maven {
+        name 'Configuration'
+        url 'https://api.repsy.io/mvn/toma/public/'
+    }
+    maven { // Registrate
+        url = "https://maven.tterrag.com/"
+        content {
+            // need to be specific here due to version overlaps
+            includeGroup("com.jozufozu.flywheel")
+            includeGroup("com.tterrag.registrate")
+            includeGroup("com.simibubi.create")
+        }
+    }
+    exclusiveContent { // tterrag - registrate
+        forRepository { maven { url = "https://mvn.devos.one/snapshots/" } }
+        filter { includeGroup("com.tterrag.registrate") }
+    }
+    maven { // LDLib, Shimmer
+        name = "FirstDarkDev Maven"
+        url = "https://maven.firstdarkdev.xyz/snapshots/"
+    }
+}
+
+base {
+    archivesName = mod_id
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+neoForge {
+    // Specify the version of NeoForge to use.
+    version = project.neo_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+
+    // This line is optional. Access Transformers are automatically detected
+    // accessTransformers.add('src/main/resources/META-INF/accesstransformer.cfg')
+
+    // Default run configurations.
+    // These can be tweaked, removed, or duplicated as needed.
+    runs {
+        client {
+            client()
+
+            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        // This run config launches GameTestServer and runs all registered gametests, then exits.
+        // By default, the server will crash when no gametests are provided.
+        // The gametest system is also enabled by default for other run configs under the /test command.
+        gameTestServer {
+            type = "gameTestServer"
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        data {
+            data()
+
+            // example of overriding the workingDirectory set in configureEach above, uncomment if you want to use it
+            // gameDirectory = project.file('run-data')
+
+            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+        }
+
+        // applies to all the run configs above
+        configureEach {
+            // Recommended logging data for a userdev environment
+            // The markers can be added/remove as needed separated by commas.
+            // "SCAN": For mods scan.
+            // "REGISTRIES": For firing of registry events.
+            // "REGISTRYDUMP": For getting the contents of all registries.
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+
+            // Recommended logging level for the console
+            // You can set various levels here.
+            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
+            logLevel = org.slf4j.event.Level.DEBUG
+        }
+    }
+
+    mods {
+        // define mod <-> source bindings
+        // these are used to tell the game which sources are for which mod
+        // mostly optional in a single mod project
+        // but multi mod projects should define one per mod
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+        }
+    }
+}
+
+// Include resources generated by data generators.
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+
+dependencies {
+    // Example mod dependency with JEI
+    // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
+    // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
+    // compileOnly "mezz.jei:jei-${mc_version}-forge-api:${jei_version}"
+    // runtimeOnly "mezz.jei:jei-${mc_version}-forge:${jei_version}"
+    switch (runtime_jei_mod) {
+        case "emi":
+            runtimeOnly "dev.emi:emi-neoforge:${emi_version}"
+
+            if (test_various_mods == "true") {
+                runtimeOnly "com.gregtechceu.gtceu:gtceu-${minecraft_version}:${gtm_version}" // GregTech CEu Modern
+            }
+            break
+        case "rei":
+            runtimeOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${rei_version}"
+            break
+        case "jei":
+            runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+
+            runtimeOnly("curse.maven:ae2-jei-integration-1074338:5748513")
+    }
+    compileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}") // JEI
+    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}") // JEI
+    compileOnly("curse.maven:ae2-jei-integration-1074338:5748513") // AE2 JEI Integration
+    compileOnly "dev.emi:emi-neoforge:${emi_version}:api" // EMI
+    compileOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${rei_version}" // REI
+
+    compileOnly("com.almostreliable.mods:almostunified-neoforge:${minecraft_version}-${almostunified_version}:api") // Almost Unified
+
+    compileOnly("curse.maven:merequester-688367:6436029") // ME Requester
+
+
+    compileOnly("curse.maven:glodium-957920:5821676") // Extended AE Dependency
+    compileOnly("curse.maven:ex-pattern-provider-892005:6628645") // Extended AE
+
+    implementation 'com.google.auto.service:auto-service:1.1.1' // AutoService for annotation processing
+    annotationProcessor 'com.google.auto.service:auto-service:1.1.1' // AutoService for annotation processing
+
+    implementation "org.appliedenergistics:appliedenergistics2:${ae2_version}" // AE2
+
+    compileOnly "org.appliedenergistics:guideme:${guide_me_version}:api" // Guide Me API
+    runtimeOnly "org.appliedenergistics:guideme:${guide_me_version}"     // Guide Me
+
+    compileOnly("de.mari_023:ae2wtlib:${ae2wtlib_version}") // AE2 Wireless Terminal Library Full artifact
+    jarJar(implementation("de.mari_023:ae2wtlib_api:${ae2wtlib_version}")) // AE2 Wireless Terminal Library API
+    // api usage: de.mari_023:ae2wtlib_api:${ae2wtlib_version}
+    runtimeOnly("de.mari_023:ae2wtlib:${ae2wtlib_version}") // AE2 Wireless Terminal Library
+//    runtimeOnly("curse.maven:merequester-688367:6436029")
+    runtimeOnly("com.almostreliable.mods:almostunified-neoforge:${minecraft_version}-${almostunified_version}")
+
+    runtimeOnly("curse.maven:glodium-957920:5821676") // Extended AE Dependency
+    runtimeOnly("curse.maven:ex-pattern-provider-892005:6628645") // Extended AE
+
+
+    // test compatibility with various mods
+
+    if (test_various_mods == "true") {
+        runtimeOnly("curse.maven:immersive-engineering-231951:6538942") // Immersive Engineering
+        runtimeOnly("mekanism:Mekanism:1.21.1-10.7.0.55")// Mekanism
+        runtimeOnly("mekanism:Mekanism:1.21.1-10.7.0.55:additions")// Mekanism: Additions
+        runtimeOnly("mekanism:Mekanism:1.21.1-10.7.0.55:generators")// Mekanism: Generators
+        runtimeOnly("mekanism:Mekanism:1.21.1-10.7.0.55:tools")// Mekanism: Tools
+    }
+
+    // NeoForge
+    // Greg Configuration library
+//    implementation "com.lowdragmc.ldlib:ldlib-neoforge-${minecraft_version}:${ldlib_version}"
+
+
+    // Example mod dependency using a mod jar from ./libs with a flat dir repository
+    // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
+    // The group id is ignored when searching -- in this case, it is "blank"
+    // implementation "blank:coolmod-${mc_version}:${coolmod_version}"
+
+    // Example mod dependency using a file as dependency
+    // implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
+
+    // Example project dependency using a sister or child project:
+    // implementation project(":myproject")
+
+    // For more info:
+    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
+    // http://www.gradle.org/docs/current/userguide/dependency_management.html
+}
+
+// This block of code expands all declared replace properties in the specified resource targets.
+// A missing property will result in an error. Properties are expanded using ${} Groovy notation.
+var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
+    var replaceProperties = [minecraft_version      : minecraft_version,
+                             minecraft_version_range: minecraft_version_range,
+                             neo_version            : neo_version,
+                             neo_version_range      : neo_version_range,
+                             loader_version_range   : loader_version_range,
+                             mod_id                 : mod_id,
+                             mod_name               : mod_name,
+                             mod_license            : mod_license,
+                             mod_version            : mod_version,
+                             mod_authors            : mod_authors,
+                             mod_description        : mod_description]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from "src/main/templates"
+    into "build/generated/sources/modMetadata"
+}
+
+// Include the output of "generateModMetadata" as an input directory for the build
+// this works with both building through Gradle and the IDE.
+sourceSets.main.resources.srcDir generateModMetadata
+// To avoid having to run "generateModMetadata" manually, make it run on every project reload
+neoForge.ideSyncTask generateModMetadata
+
+// Example configuration to allow publishing using the maven-publish plugin
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url "file://${project.projectDir}/repo"
+        }
+    }
+}
+
+// IDEA no longer automatically downloads sources/javadoc jars for dependencies, so we need to explicitly enable the behavior.
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schema.json",
+  "widgets": {
+    "multiplierButtonMul2": {
+      "left": 97,
+      "bottom": 124
+    },
+    "multiplierButtonMul3": {
+      "left": 97,
+      "bottom": 115
+    },
+    "multiplierButtonMul5": {
+      "left": 97,
+      "bottom": 106
+    },
+    "multiplierButtonDiv2": {
+      "left": 78,
+      "bottom": 124
+    },
+    "multiplierButtonDiv3": {
+      "left": 78,
+      "bottom": 115
+    },
+    "multiplierButtonDiv5": {
+      "left": 78,
+      "bottom": 106
+    }
+  }
+}

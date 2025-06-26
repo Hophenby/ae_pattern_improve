@@ -1,0 +1,8 @@
+{
+  "parent": "ae2:part/display_off",
+  "textures": {
+    "lightsBright": "ae_pattern_improve:part/pattern_batch_encoding_terminal_bright",
+    "lightsMedium": "ae_pattern_improve:part/pattern_batch_encoding_terminal_medium",
+    "lightsDark": "ae_pattern_improve:part/pattern_batch_encoding_terminal_dark"
+  }
+}

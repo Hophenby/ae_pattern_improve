@@ -1,0 +1,65 @@
+{
+  "$schema": "schema.json",
+  "includes": ["common/common.json"],
+  "background": {
+    "texture": "elements/list_box.png",
+    "srcRect": [0, 0, 123, 141]
+  },
+  "text": {
+    "dialog_title": {
+      "text": {
+        "translate": "gui.ae_pattern_improve.ConfigureEncodingComparatorScreen"
+      },
+      "position": {
+        "left": 8,
+        "top": 7
+      }
+    }
+  },
+  "widgets": {
+    "scrollbar": {
+      "left": 110,
+      "top": 20,
+      "width": 9,
+      "height": 75
+    },
+    "returnToParent": {
+      "left": 62,
+      "top": 110,
+      "width": 45,
+      "height": 20
+    },
+    "addNewItem": {
+      "right": 20,
+      "top": 140,
+      "width": 20,
+      "height": 20
+    },
+    "resetToDefault": {
+      "left": 8,
+      "top": 110,
+      "width": 45,
+      "height": 20
+    }
+  },
+  "images": {
+    "listItemButton": {
+      "texture": "elements/list_box.png",
+      "textureWidth": 256,
+      "textureHeight": 256,
+      "srcRect": [128, 0, 98, 24]
+    },
+    "listItemButtonSelecting": {
+      "texture": "elements/list_box.png",
+      "textureWidth": 256,
+      "textureHeight": 256,
+      "srcRect": [128, 24, 98, 24]
+    },
+    "listItemButtonSelected": {
+      "texture": "elements/list_box.png",
+      "textureWidth": 256,
+      "textureHeight": 256,
+      "srcRect": [128, 48, 98, 24]
+    }
+  }
+}

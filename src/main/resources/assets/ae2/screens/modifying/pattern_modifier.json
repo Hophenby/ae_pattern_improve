@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schema.json",
+  "widgets": {
+    "patternModifierScrollbar": {
+      "right": 1,
+      "top": 60,
+      "height": 54
+    },
+    "patternModifierScrollbarBackground": {
+      "right": 2,
+      "top": 45
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "$schema": "../schema.json",
+  "includes": [
+    "pattern_modifier.json",
+    "modifying/pattern_modifier.json"
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "$schema": "../schema.json",
+  "includes": [
+    "terminal.json",
+    "encoding/modify_batch_processing.json"],
+  "helpTopic": "items-blocks-machines/terminals.md#crafting-terminal-ui",
+  "slots": {
+    "AE__BATCH_FILTER": {
+      "left": 15,
+      "bottom": 211,
+      "grid": "BREAK_AFTER_9COLS"
+    },
+    "BLANK_PATTERN": {
+      "left": 69,
+      "bottom": 170
+    },
+    "ENCODED_PATTERN": {
+      "left": 15,
+      "bottom": 128,
+      "grid": "BREAK_AFTER_9COLS"
+    },
+    "PROCESSING_INPUTS": {
+      "right": -10,
+      "bottom": 211,
+      "grid": "BREAK_AFTER_3COLS"
+    },
+    "PROCESSING_OUTPUTS": {
+      "right": -10,
+      "bottom": 128,
+      "grid": "BREAK_AFTER_3COLS"
+    }
+  },
+  "tooltips": {
+    "processing-primary-output": {
+      "right": -10,
+      "bottom": 128,
+      "width": 18,
+      "height": 18,
+      "tooltip": [
+        {
+          "translate": "gui.ae2.PatternEncoding.primary_processing_result_tooltip"
+        },
+        {
+          "translate": "gui.ae2.PatternEncoding.primary_processing_result_hint",
+          "color": "#666666"
+        },
+        {
+          "translate": "gui.ae_pattern_improve.PatternBatchEncodingTerminal.encoding_area_hint",
+          "color": "#66ddca"
+        }
+      ]
+    },
+    "processing-optional-output1": {
+      "right": -10,
+      "bottom": 128,
+      "width": 18,
+      "height": 18,
+      "tooltip": [
+        {
+          "translate": "gui.ae2.PatternEncoding.secondary_processing_result_tooltip"
+        },
+        {
+          "translate": "gui.ae2.PatternEncoding.secondary_processing_result_hint",
+          "color": "#666666"
+        },
+        {
+          "translate": "gui.ae_pattern_improve.PatternBatchEncodingTerminal.encoding_area_hint",
+          "color": "#66ddca"
+        }
+      ]
+    },
+    "processing-optional-output2": {
+      "right": -28,
+      "bottom": 128,
+      "width": 18,
+      "height": 18,
+      "tooltip": [
+        {
+          "translate": "gui.ae2.PatternEncoding.secondary_processing_result_tooltip"
+        },
+        {
+          "translate": "gui.ae2.PatternEncoding.secondary_processing_result_hint",
+          "color": "#666666"
+        },
+        {
+          "translate": "gui.ae_pattern_improve.PatternBatchEncodingTerminal.encoding_area_hint",
+          "color": "#66ddca"
+        }
+      ]
+    },
+    "processing-optional-output3": {
+      "right": -46,
+      "bottom": 128,
+      "width": 18,
+      "height": 18,
+      "tooltip": [
+        {
+          "translate": "gui.ae2.PatternEncoding.secondary_processing_result_tooltip"
+        },
+        {
+          "translate": "gui.ae2.PatternEncoding.secondary_processing_result_hint",
+          "color": "#666666"
+        },
+        {
+          "translate": "gui.ae_pattern_improve.PatternBatchEncodingTerminal.encoding_area_hint",
+          "color": "#66ddca"
+        }
+      ]
+    },
+    "processing-input": {
+      "right": -10,
+      "bottom": 211,
+      "width": 54,
+      "height": 54,
+      "tooltip": [
+        {
+          "translate": "gui.ae_pattern_improve.PatternBatchEncodingTerminal.encoding_area_input"
+        },
+        {
+          "translate": "gui.ae_pattern_improve.PatternBatchEncodingTerminal.encoding_area_hint",
+          "color": "#66ddca"
+        }
+      ]
+    },
+    "filter-input": {
+      "left": 15,
+      "bottom": 211,
+      "width": 162,
+      "height": 18,
+      "tooltip": [
+        {
+          "translate": "gui.ae_pattern_improve.PatternBatchEncodingTerminal.filter_area_input"
+        },
+        {
+          "translate": "gui.ae_pattern_improve.PatternBatchEncodingTerminal.filter_area_hint",
+          "color": "#66ddca"
+        },
+        {
+          "translate": "gui.ae_pattern_improve.PatternBatchEncodingTerminal.filter_area_hint1",
+          "color": "#66aa66"
+        }
+      ]
+    }
+  },
+  "text": {
+    "dialog_title": {
+      "text": {
+        "translate": "gui.ae2.Terminal"
+      },
+      "position": {
+        "left": 8,
+        "top": 6
+      }
+    },
+    "crafting_grid_title": {
+      "text": {
+        "translate": "gui.ae_pattern_improve.PatternBatchEncodingTerminal"
+      },
+      "position": {
+        "left": 8,
+        "bottom": 233
+      }
+    }
+  },
+  "terminalStyle": {
+    "header": {
+      "texture": "guis/batch_encoder.png",
+      "textureWidth": 384,
+      "textureHeight": 384,
+      "srcRect": [0, 0, 195, 17]
+    },
+    "firstRow": {
+      "texture": "guis/batch_encoder.png",
+      "textureWidth": 384,
+      "textureHeight": 384,
+      "srcRect": [0, 17, 195, 18]
+    },
+    "row": {
+      "texture": "guis/batch_encoder.png",
+      "textureWidth": 384,
+      "textureHeight": 384,
+      "srcRect": [0, 35, 195, 18]
+    },
+    "lastRow": {
+      "texture": "guis/batch_encoder.png",
+      "textureWidth": 384,
+      "textureHeight": 384,
+      "srcRect": [0, 53, 195, 18]
+    },
+    "bottom": {
+      "texture": "guis/batch_encoder.png",
+      "textureWidth": 384,
+      "textureHeight": 384,
+      "srcRect": [0, 71, 195, 237]
+    },
+    "sideSlide": {
+      "texture": "guis/batch_encoder.png",
+      "textureWidth": 384,
+      "textureHeight": 384,
+      "srcRect": [202, 0, 77, 139]
+    }
+  },
+  "widgets": {
+    "clearFiltering": {
+      "left": 14,
+      "bottom": 192
+    },
+    "clearEncoding": {
+      "right": -9,
+      "bottom": 156
+    },
+    "processingCycleOutput": {
+      "right": -18,
+      "bottom": 156
+    },
+    "upperScrollbar": {
+      "right": -65,
+      "bottom": 211,
+      "height": 52
+    },
+    "lowerScrollbar": {
+      "right": -65,
+      "bottom": 128,
+      "height": 16
+    },
+    "sidePanel":{
+      "left": 195,
+      "bottom": 227
+    },
+    "batchEncode":{
+      "left": 103,
+      "bottom": 172
+    }
+  }
+}

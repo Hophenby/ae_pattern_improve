@@ -1,0 +1,13 @@
+{
+    "neoforge:conditions": [
+        {
+            "type": "neoforge:mod_loaded",
+            "modid": "ae2wtlib"
+        }
+    ],
+    "type": "ae2wtlib:upgrade",
+    "terminal": {
+        "item": "ae_pattern_improve:wireless_batch_encoder"
+    },
+    "terminalName": "pattern_batch_encoding"
+}

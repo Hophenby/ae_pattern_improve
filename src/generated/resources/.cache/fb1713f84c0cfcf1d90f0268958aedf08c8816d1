@@ -1,0 +1,16 @@
+// 1.21.1	2025-06-26T00:26:04.0657082	vanilla/Tags for minecraft:block mod id ae2
+0f4b5298511be402272cd26df3ecc44bd2a0c0ef data/ae2/tags/block/blacklisted/annihilation_plane.json
+13146e010eb70d00e36915809b201774193696c4 data/ae2/tags/block/blacklisted/spatial.json
+91e50199ec292695d7f543a3e3bba61e60cf61a9 data/ae2/tags/block/growth_acceleratable.json
+791740a28ff9bd9b42dd2012cb8ded909fdb8634 data/ae2/tags/block/whitelisted/facades.json
+849e1c9c5a9f9e5f9c3b5609bea73f5c71d44fb7 data/c/tags/block/budding_blocks.json
+9b2177c68aa50f7c9cc97098bee05e3c4b3f1010 data/c/tags/block/buds.json
+4ea3d44af754d2404f528eeccef2cd944d196887 data/c/tags/block/chests.json
+0849e0199293e5e3bb6a0a3d433c12e0815616f6 data/c/tags/block/clusters.json
+bb7449e70fde4c68e624b7d1ceeb5545fdd214f0 data/c/tags/block/glass_blocks.json
+c9a563fa1d65e21347946dc1a02a358aa16d161c data/c/tags/block/storage_blocks.json
+2acde42221e84e1a4aa312f97a720aca57e9b53f data/c/tags/block/storage_blocks/certus_quartz.json
+dc03edda508d36e0be1c374d7f09857e629cb26b data/minecraft/tags/block/mineable/pickaxe.json
+0aacd29ba293e98ac3f78359141e83a313def18c data/minecraft/tags/block/needs_iron_tool.json
+19f828a6242b28329d3717f8054d40552bf4dd50 data/minecraft/tags/block/walls.json
+217b0756156048c129e8ce30de08ec81d7faf892 data/minecraft/tags/block/wall_post_override.json

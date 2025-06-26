@@ -1,0 +1,43 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.ae_pattern_improve.ae_pattern_improve.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "ae_pattern_improve.refmap.json",
+  "mixins": [
+    "AccessorAEBaseMenu",
+    "AccessorAEBaseMenu$MixinAEBaseMenu",
+    "MixinConfigInventory",
+    "MixinEncodingHelper",
+    "MixinEncodingHelper$MixinEncodingHelperModifier",
+    "MixinInterfaceLogic",
+    "MixinPatternEncodingTermMenu",
+    "MixinPatternProviderMenu",
+    "MixinPatternSlot",
+    "MixinRestrictedInputSlot",
+    "MixinSlot",
+    "xmod.extendedae.MixinHostPatternModifier",
+    "xmod.extendedae.MixinItemPatternModifier",
+    "xmod.extendedae.MixinPartExPatternProvider",
+    "xmod.extendedae.MixinTileExPatternProvider"
+  ],
+  "client": [
+    "client.MixinAbstractContainerScreen",
+    "client.MixinAEBaseScreen",
+    "client.MixinAEBaseScreen$MixinAEBaseScreenInjector",
+    "client.MixinGuiGraphics",
+    "client.MixinMEStorageScreen",
+    "client.MixinPatternEncodingTermScreen",
+    "client.MixinPatternProviderScreen",
+    "client.MixinProcessingEncodingPanel",
+    "client.MixinScreen",
+    "client.MixinScreenStyle",
+    "client.MixinScrollBar",
+    "client.MixinWidgetContainer",
+    "xmod.extendedae.MixinGuiPatternModifier"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "plugin": "org.ae_pattern_improve.ae_pattern_improve.xmodcompat.MixinPlugin"
+}

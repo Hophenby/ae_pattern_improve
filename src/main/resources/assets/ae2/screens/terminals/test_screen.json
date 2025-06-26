@@ -1,0 +1,24 @@
+{
+  "$schema": "../schema.json",
+  "includes": [
+    "../common/common.json",
+    "../common/player_inventory.json"
+  ],
+  "text": {
+    "dialog_title": {
+      "text": {
+        "translate": "gui.ae_pattern_improve.TestScreen.title"
+      },
+      "position": {
+        "left": 8,
+        "top": 6
+      }
+    }
+  },
+  "widgets": {
+    "scrollbar": {
+      "left": 175,
+      "top": 18
+    }
+  }
+}

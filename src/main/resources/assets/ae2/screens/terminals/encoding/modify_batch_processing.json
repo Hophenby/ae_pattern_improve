@@ -1,0 +1,33 @@
+{
+  "$schema": "../../schema.json",
+  "widgets": {
+    "multiplierButtonMul2": {
+      "right": -49,
+      "bottom": 157
+    },
+    "multiplierButtonMul3": {
+      "right": -49,
+      "bottom": 148
+    },
+    "multiplierButtonMul5": {
+      "right": -49,
+      "bottom": 139
+    },
+    "multiplierButtonDiv2": {
+      "right": -61,
+      "bottom": 157
+    },
+    "multiplierButtonDiv3": {
+      "right": -61,
+      "bottom": 148
+    },
+    "multiplierButtonDiv5": {
+      "right": -61,
+      "bottom": 139
+    },
+    "switchToEncodingPreferenceScreen": {
+      "left": -10,
+      "bottom": 139
+    }
+  }
+}
