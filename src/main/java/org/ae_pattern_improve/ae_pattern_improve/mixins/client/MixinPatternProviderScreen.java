@@ -6,12 +6,12 @@ import appeng.menu.SlotSemantic;
 import appeng.menu.SlotSemantics;
 import appeng.menu.implementations.PatternProviderMenu;
 import appeng.menu.slot.AppEngSlot;
-import com.glodblock.github.extendedae.container.ContainerExPatternProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import org.ae_pattern_improve.ae_pattern_improve.client.gui.widgets.DynamicScrollBar;
 import org.ae_pattern_improve.ae_pattern_improve.mixin_helpers.IScrollableInvScreen;
 import org.ae_pattern_improve.ae_pattern_improve.xmodcompat.XModUtils;
+import org.ae_pattern_improve.ae_pattern_improve.xmodcompat.exae.ExAEReflect;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -48,7 +48,7 @@ public abstract class MixinPatternProviderScreen implements IScrollableInvScreen
     public boolean ae_pattern_improve$shouldAddScrollBar() {
         return ae_pattern_improve$menu.getSlots(SlotSemantics.ENCODED_PATTERN).size() > 36
                 && XModUtils.isModLoaded(XModUtils.EXTENDED_AE_MOD_ID)
-                && ContainerExPatternProvider.class.isAssignableFrom(ae_pattern_improve$menu.getClass());
+                && ExAEReflect.getExPatternProviderMenuClass().isAssignableFrom(ae_pattern_improve$menu.getClass());
     }
     @Inject(
             method = "updateBeforeRender",

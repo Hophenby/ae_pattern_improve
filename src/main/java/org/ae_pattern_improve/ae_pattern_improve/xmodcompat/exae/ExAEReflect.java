@@ -11,6 +11,7 @@ import java.lang.reflect.Field;
 public final class ExAEReflect {
 
     private static Field fPatternModifierInv;
+    private static Class<?> cExPatternProvider;
     private static boolean initialized = false;
 
     private static void init()  {
@@ -20,6 +21,7 @@ public final class ExAEReflect {
 //            Field modifiersField = Field.class.getDeclaredField("modifiers");
 
             fPatternModifierInv = ReflectKit.reflectField(Class.forName("com.glodblock.github.extendedae.common.me.itemhost.HostPatternModifier"), "patternInv");
+            cExPatternProvider = Class.forName("com.glodblock.github.extendedae.container.ContainerExPatternProvider");
             //            fPatternInv.setAccessible(true);
 //            modifiersField.setInt(fPatternInv, fPatternInv.getModifiers() & ~Modifier.FINAL);
             //  | IllegalAccessException e
@@ -37,5 +39,9 @@ public final class ExAEReflect {
     public static void setPatternModifierInv(HostPatternModifier hostPatternModifier, AppEngInternalInventory inv) {
         checkOrInit();
         ReflectKit.writeField(hostPatternModifier, fPatternModifierInv, inv);
+    }
+    public static Class<?> getExPatternProviderMenuClass() {
+        checkOrInit();
+        return cExPatternProvider;
     }
 }

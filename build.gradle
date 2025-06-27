@@ -204,10 +204,10 @@ dependencies {
     // api usage: de.mari_023:ae2wtlib_api:${ae2wtlib_version}
     runtimeOnly("de.mari_023:ae2wtlib:${ae2wtlib_version}") // AE2 Wireless Terminal Library
 //    runtimeOnly("curse.maven:merequester-688367:6436029")
-    runtimeOnly("com.almostreliable.mods:almostunified-neoforge:${minecraft_version}-${almostunified_version}")
-
-    runtimeOnly("curse.maven:glodium-957920:5821676") // Extended AE Dependency
-    runtimeOnly("curse.maven:ex-pattern-provider-892005:6628645") // Extended AE
+//    runtimeOnly("com.almostreliable.mods:almostunified-neoforge:${minecraft_version}-${almostunified_version}")
+//
+//    runtimeOnly("curse.maven:glodium-957920:5821676") // Extended AE Dependency
+//    runtimeOnly("curse.maven:ex-pattern-provider-892005:6628645") // Extended AE
 
 
     // test compatibility with various mods
